@@ -17,7 +17,7 @@ int main(){
     while(true){
         cnt++;
 
-        if (num < 0) {
+        if (num < 10) {
             aNum = 0;
             bNum = num;
         }
@@ -26,12 +26,13 @@ int main(){
             bNum = num%10;
         }
         aPlusB = aNum + bNum;
-        result = bNum + aPlusB%10;
+        result = bNum*10 + (aPlusB<10 ? aPlusB : aPlusB%10);
 
         if(result == initialNum){
             cout << cnt;
             break;
         }
         num = result;
+
     }
 }
