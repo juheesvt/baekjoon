@@ -9,8 +9,7 @@ int main() {
     int selfNumber[10000] = {0,};
     int targetNumber, currentNumber;
 
-    for (int i = 1; i <= 10000; i++) {
-
+    for (int i = 1; i < 10000; i++) {
         targetNumber = 0;
         currentNumber = i;
 
@@ -24,23 +23,24 @@ int main() {
                     break;
                 }
             }
-            if (!isOver) {
-                targetNumber += currentNumber + i;
-            }
+            if(isOver)
+                break;
+            targetNumber += currentNumber + i;
+
         }
         else {
             targetNumber += 2*i;
         }
-        if (!isOver) {
-            if (selfNumber[targetNumber - 1] != 1) {
+        if(targetNumber < 10000){
+            if (selfNumber[targetNumber - 1] == 0) {
                 selfNumber[targetNumber - 1] = 1;
             }
         }
     }
-/*
-    for(int i = 0; i<10000; i++){
-        if( selfNumber[i] == 1)
+
+    for(int i = 0; i<9999; i++){
+        if( selfNumber[i] == 0)
             cout << i+1 <<endl;
     }
-    */
+
 }
